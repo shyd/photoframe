@@ -69,6 +69,6 @@ Change the port mapping in docker from 8080:8080 to 8081:8080 to separate the po
 In short:
 
 ```bash
-sudo wget https://raw.githubusercontent.com/shyd/google-photos/develop/REST/PhotoFrame/nginx/pf-startup.html -O /usr/share/nginx/html/pf-startup.html
-sudo wget https://raw.githubusercontent.com/shyd/google-photos/develop/REST/PhotoFrame/nginx/proxy.conf -O /etc/nginx/conf.d/proxy.conf
+sudo wget https://raw.githubusercontent.com/shyd/photoframe/refs/heads/main/nginx/pf-startup.html -O /usr/share/nginx/html/pf-startup.html
+sudo wget https://raw.githubusercontent.com/shyd/photoframe/refs/heads/main/nginx/proxy.conf -O /etc/nginx/conf.d/proxy.conf
 ```
