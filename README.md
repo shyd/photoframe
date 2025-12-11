@@ -22,7 +22,19 @@ Install Docker from <https://docs.docker.com/engine/install/debian/> in order to
 To autostart Chromium after autologin add a autostart config for labwc in `.config/labwc/autostart` (create it if not existing):
 
 ```
-/usr/bin/chromium --kiosk --noerrdialogs --disable-infobars --no-first-run --ozone-platform=wayland --enable-features=OverlayScrollbar --start-fullscreen --enable-auto-reload --check-for-update-interval=31536000 --hide-crash-restore-bubble --app=http://127.0.0.1:8080 --password-store=basic
+/usr/bin/chromium \
+--kiosk \
+--noerrdialogs \
+--disable-infobars \
+--no-first-run \
+--ozone-platform=wayland \
+--enable-features=OverlayScrollbar \
+--start-fullscreen \
+--enable-auto-reload \
+--check-for-update-interval=31536000 \
+--hide-crash-restore-bubble \
+--app=http://127.0.0.1:8080 \
+--password-store=basic
 ```
 
 Reboot.
