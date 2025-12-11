@@ -15,23 +15,17 @@ Install a fresh Raspberry Pi OS with Desktop. <https://www.raspberrypi.org/downl
 
 ### Docker
 
-Install Docker from <https://docs.docker.com/engine/install/debian/> in order to run the prebuilt container. Also install `docker-compose` if you wish to use the yml: `apt-get install docker-compose`.
+Install Docker from <https://docs.docker.com/engine/install/debian/> in order to run the prebuilt container.
 
 ### Chromium
 
-Install `unclutter` to hide the cursor and `chromium-browser` as photo frame frontend.
-Let a user auto-login and change `/etc/xdg/lxsession/LXDE-pi/autostart` to this:
+To autostart Chromium after autologin add a autostart config for labwc in `.config/labwc/autostart` (create it if not existing):
 
-```plain
-@lxpanel --profile LXDE-pi
-@pcmanfm --desktop --profile LXDE-pi
-#@xscreensaver -no-splash
-@xset s off
-@xset -dpms
-@xset s noblank
-@chromium-browser --start-fullscreen --enable-auto-reload --noerrdialogs --check-for-update-interval=31536000 --hide-crash-restore-bubble --app=http://127.0.0.1:8080
-@unclutter -idle 1
 ```
+/usr/bin/chromium --kiosk --noerrdialogs --disable-infobars --no-first-run --ozone-platform=wayland --enable-features=OverlayScrollbar --start-fullscreen --enable-auto-reload --check-for-update-interval=31536000 --hide-crash-restore-bubble --app=http://127.0.0.1:8080 --password-store=basic
+```
+
+Reboot.
 
 Now everything should run by default.
 
