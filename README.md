@@ -17,7 +17,14 @@ Install a fresh Raspberry Pi OS with Desktop. <https://www.raspberrypi.org/downl
 
 Install Docker from <https://docs.docker.com/engine/install/debian/> in order to run the prebuilt container.
 
-### Chromium
+### Chromium and hiding cursor
+
+To use labwc built-in hide cursor first install `wlrctl`:
+
+```bash
+sudo apt update
+sudo apt install wlrctl
+```
 
 To autostart Chromium after autologin add a autostart config for labwc in `.config/labwc/autostart` (create it if not existing):
 
@@ -34,12 +41,20 @@ To autostart Chromium after autologin add a autostart config for labwc in `.conf
 --check-for-update-interval=31536000 \
 --hide-crash-restore-bubble \
 --app=http://127.0.0.1:8080 \
---password-store=basic
+--password-store=basic &
+
+sleep 5
+wlrctl pointer move 99999 99999
+wlrctl action HideCursor
 ```
 
 Reboot.
 
 Now everything should run by default.
+
+#### Why moving the pointer matters
+
+HideCursor only hides the cursor. It may reappear on pointer movement, and the pointer can still sit over some page element and trigger hover behavior. Labwc’s own docs mention using WarpCursor together with HideCursor for this reason. [labwc.github.io](https://labwc.github.io/labwc-actions.5.html)
 
 ### LED Setup
 
